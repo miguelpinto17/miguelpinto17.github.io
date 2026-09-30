@@ -82,7 +82,7 @@
       <h2>Featured projects</h2>
       <a class="see-all" href="/projects/">All projects →</a>
     </div>
-    <div class="grid">
+    <div class="grid grid--carousel">
       {% for p in featured_projects %}
       <a class="card reveal-zoom" href="/projects/{{ p.slug }}/">
         <span class="card-meta">{{ p.year }}</span>

@@ -1005,3 +1005,138 @@ li { margin-bottom: 0.4em; }
   .post-row .post-date { white-space: normal; padding-top: 0; }
   .section-head { flex-wrap: wrap; gap: 0.4rem 1rem; }
 }
+
+/* ======================================================================
+   Mobile app-like experience (phones)
+   Fixed bottom tab bar, full-width tappable CTAs, a swipeable project
+   carousel, roomier cards. Desktop is untouched.
+   ====================================================================== */
+.tabbar { display: none; }
+
+@media (max-width: 640px) {
+  /* --- Bottom tab bar owns navigation on phones --- */
+  .mobile-nav-toggle { display: none !important; }
+  .nav.open .nav-links { display: none; }
+
+  .tabbar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 100;
+    background: color-mix(in srgb, var(--surface) 90%, transparent);
+    -webkit-backdrop-filter: blur(18px) saturate(1.5);
+    backdrop-filter: blur(18px) saturate(1.5);
+    border-top: 1px solid var(--border);
+    padding-bottom: env(safe-area-inset-bottom);
+    box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.08);
+  }
+  :root[data-theme="dark"] .tabbar { box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.4); }
+
+  .tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    min-height: 56px;
+    padding: 8px 0 6px;
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.66rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    -webkit-tap-highlight-color: transparent;
+    transition: color 0.2s ease, transform 0.15s var(--ease);
+  }
+  .tab svg { width: 23px; height: 23px; transition: transform 0.2s var(--ease); }
+  .tab:active { transform: scale(0.92); }
+  .tab.is-active { color: var(--accent); }
+  .tab.is-active svg { transform: translateY(-1px); }
+  /* soft active pill behind the icon */
+  .tab.is-active::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    width: 46px; height: 26px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    z-index: -1;
+  }
+  .tab { position: relative; }
+
+  /* keep content clear of the fixed bar */
+  body { padding-bottom: calc(60px + env(safe-area-inset-bottom)); }
+
+  /* --- Bigger, thumb-friendly typography + rhythm --- */
+  h1 { font-size: clamp(2.3rem, 10vw, 3rem); }
+  .signal-title { font-size: clamp(2.2rem, 11vw, 3rem); }
+  .hero .kicker { font-size: 0.9rem; }
+  .hero .tagline { font-size: 1.08rem; }
+  .section-head h2 { font-size: 1.55rem; }
+
+  /* --- Full-width tappable CTAs everywhere --- */
+  .hero-links, .detail-header .detail-links {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 0.6rem;
+  }
+  .hero-links .btn, .detail-header .detail-links .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.9em 1.2em;
+    font-size: 1rem;
+  }
+
+  /* --- Featured projects become a swipeable carousel --- */
+  .grid--carousel {
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 0.9rem;
+    margin: 0 -1.5rem;
+    padding: 0.4rem 1.5rem 1rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    scroll-padding: 0 1.5rem;
+  }
+  .grid--carousel::-webkit-scrollbar { display: none; }
+  .grid--carousel > .card {
+    flex: 0 0 84%;
+    min-width: 84%;
+    scroll-snap-align: start;
+  }
+
+  /* --- Roomier, more tactile cards --- */
+  .card {
+    padding: 1.4rem;
+    border-radius: 16px;
+  }
+  .card:active { transform: scale(0.985); }
+  .skill-category { border-radius: 16px; }
+
+  /* --- Stat tiles feel like widgets --- */
+  .stat-grid { gap: 0.7rem; }
+  .stat {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1rem;
+  }
+
+  /* --- Latest writing rows: tappable list items with a chevron --- */
+  .post-row {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1rem 1.1rem;
+    margin: 0 0 0.7rem;
+  }
+  .post-row:active { transform: scale(0.99); }
+
+  /* --- Footer breathes above the tab bar --- */
+  .site-footer { padding-bottom: 1.5rem; }
+  .footer-links { gap: 1rem 1.4rem; }
+}
