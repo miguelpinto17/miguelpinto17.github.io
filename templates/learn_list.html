@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<header class="detail-header">
+  <div class="prose">
+    <h1>Learn</h1>
+    <p class="summary">Short, practical lessons on SQL and Power BI. The kind of thing I wish someone had shown me earlier. I also teach these at IEFP.</p>
+  </div>
+</header>
+<section class="section prose">
+  {% for lesson in lessons %}
+  <a class="post-row reveal" href="/learn/{{ lesson.slug }}/">
+    <div>
+      <div class="post-title">{{ lesson.title }}</div>
+      <div class="post-desc">{{ lesson.description }} · <span class="tag">{{ lesson.topic }}</span> <span class="tag">{{ lesson.level|capitalize }}</span></div>
+    </div>
+    <div class="post-date">{{ lesson.date_str }}</div>
+  </a>
+  {% else %}
+  <p class="todo">Lessons coming soon.</p>
+  {% endfor %}
+</section>
+{% endblock %}

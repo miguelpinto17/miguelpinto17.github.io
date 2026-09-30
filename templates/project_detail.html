@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<header class="detail-header">
+  <div class="prose">
+    <p class="eyebrow"><a class="link" href="/projects/">← Projects</a> · {{ project.year }}</p>
+    <h1>{{ project.title }}</h1>
+    <p class="summary">{{ project.summary }}</p>
+    <div class="detail-meta">{% for t in project.stack %}<span class="tag">{{ t }}</span>{% endfor %}</div>
+    {% if project.github or project.demo or project.report %}
+    <div class="detail-links">
+      {% if project.github %}<a class="btn" href="{{ project.github }}">Code on GitHub</a>{% endif %}
+      {% if project.demo %}<a class="btn" href="{{ project.demo }}">Live demo</a>{% endif %}
+      {% if project.report %}<a class="btn" href="{{ project.report }}">Report / dashboard</a>{% endif %}
+    </div>
+    {% endif %}
+  </div>
+</header>
+<article class="section prose">
+  {{ content|safe }}
+</article>
+{% endblock %}

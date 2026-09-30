@@ -1,0 +1,95 @@
+summary: >
+  Data Analyst combining hands-on experience in Digital Payments, Risk Control and Compliance
+  analytics with self-driven ETL, SQL and ML projects, comfortable owning the full pipeline
+  from raw data to dashboard, for both technical and non-technical audiences.
+
+experience:
+  - role: Junior Data Analyst
+    org: Uphold
+    when: "Sep 2025 – Present, Porto · Full-time"
+    bullets:
+      - "I work on dashboarding and analytics across three business areas that all move fast and need reliable numbers: Digital Payments, Risk Control and Compliance."
+      - "Engineered a real-time behavioral analytics platform (Snowplow → dbt → Snowflake → Streamlit) used daily by Product and Design to track user journeys end to end."
+      - "Build and maintain 10+ dashboards and Explores in Metabase and Looker (LookML), adopted by 4–5 cross-functional teams and executive leadership as their source of truth."
+      - "Restructured dbt models to improve table design, cutting query runtime by 80% and making reports faster and more reliable for 50+ stakeholders."
+  - role: Data Analyst Intern
+    org: Uphold
+    when: "Jul 2025 – Sep 2025, Porto · Internship, Hybrid"
+    bullets:
+      - "Interned on the Data team at Uphold, converting into the full-time Junior Data Analyst role at the end of the internship."
+  - role: Power BI Trainer
+    org: "IEFP – Instituto do Emprego e Formação Profissional"
+    when: "Sep 2026 – Present, Porto · Freelance"
+    bullets:
+      - "Design and deliver certified Data Visualization courses in Power BI to classes of 30 students (Formação Modular Certificada, PESSOAS 2030 programme at EISNT)."
+      - "Develop all instructional materials independently: slides, worksheets and hands-on exercises covering Power BI visuals, report design, custom visual integration in Python, and KPI dashboard construction."
+      - "Apply an interactive, demonstration-based teaching methodology combined with formative and summative assessment to support learners with varied levels of prior experience."
+
+education:
+  - role: "Master's Degree in Informatics Engineering"
+    org: Universidade do Minho
+    when: "2024 – 2026, Braga"
+
+voluntary:
+  - role: Cultural Director
+    org: Academic Association of the University of Minho
+    when: "Jan 2024 – Jan 2025, Braga"
+    bullets:
+      - "Responsible for connecting cultural groups with students and the university. Organized events that drew 20,000+ attendees and managed ongoing cultural group activities."
+  - role: Ambassador
+    org: Magma Studio
+    when: "Mar 2023 – Jul 2025"
+    bullets:
+      - "As a Magma Ambassador, connected the campus community with the job market and helped peers learn more about the studio's Talent programmes."
+      - "Developed teamwork and problem-solving skills, playing an active role in a dynamic company where each career path matters."
+  - role: CX Director
+    org: AIESEC in UMinho
+    when: "2022, Braga"
+    bullets:
+      - "Managed student volunteering programs in Portugal supporting the UN Sustainable Development Goals; strengthened cross-cultural communication working with international students in English and French."
+
+skills:
+  tools: [Python, SQL, Power BI, Looker, Metabase, dbt, Streamlit, Tableau, Excel]
+  categories:
+    - name: Analytics & BI
+      items: [SQL, Power BI, Looker, Metabase, Tableau]
+    - name: Engineering & ML
+      items: [Python, dbt, Streamlit, XGBoost, LightGBM, scikit-learn]
+    - name: Domain
+      items: [Digital Payments, Risk Control, Compliance, Finance]
+  languages:
+    - "Portuguese (Native)"
+    - "English (C1)"
+    - "French (A2)"
+
+certificates:
+  - name: Machine Learning Foundations
+    org: University of Washington
+    year: "2026"
+  - name: 3rd Place, UMinho Trading Cup
+    org: Banco Montepio
+    year: "2025"
+  - name: Python Crash Course
+    org: Google
+    year: "2025"
+  - name: CCP – Pedagogical Competencies Certificate
+    org: IEFP
+    year: "2024"
+  - name: British Airways – Data Science Job Simulation
+    org: Forage
+    year: "2024"
+  - name: Big Data
+    org: Santander Portugal
+    year: "2024"
+  - name: Fundamentals of Data Analysis in Excel
+    org: Corporate Finance Institute (CFI)
+    year: "2023"
+  - name: FinTech
+    org: University of Chicago
+    year: "2022"
+  - name: Digital Business Development
+    org: Instituto Superior Técnico
+    year: "2022"
+  - name: European Innovation Academy
+    org: Universidade do Porto
+    year: "2022"

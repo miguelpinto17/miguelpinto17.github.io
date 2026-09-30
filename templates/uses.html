@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<header class="detail-header">
+  <div class="prose">
+    <h1>Uses</h1>
+    <p class="summary">The tools and setup I actually work with.</p>
+  </div>
+</header>
+<section class="section prose">
+  {{ content|safe }}
+</section>
+{% endblock %}

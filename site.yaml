@@ -1,0 +1,36 @@
+name: Miguel Luzes
+base_url: "https://miguelpinto17.github.io"
+github: https://github.com/miguelpinto17
+linkedin: https://linkedin.com/in/miguelpaispinto
+letterboxd: https://letterboxd.com/miguel1703/
+tagline: "Data analyst in Porto. I build pipelines and dashboards, and I like explaining data to people who don't live in it."
+about: >
+  I studied Informatics Engineering at Universidade do Minho, and today I'm a Data Analyst
+  at Uphold, working on dashboards and analytics across payments, risk, finance and
+  compliance. On weekends I teach a SQL & Power BI course at IEFP. Before data, I spent
+  years organising culture and people: I directed cultural programming at the Academic
+  Association of the University of Minho (events with 20,000+ attendees) and was CX Director
+  at AIESEC in UMinho.
+mission: "I turn raw, half-understood numbers into decisions teams actually trust."
+teaching:
+  line: "I teach SQL & Power BI."
+  sub: "I train IEFP students on weekends, and I'm available for workshops and 1:1 sessions with teams that want to make better decisions with their data."
+  cta: "Get in touch"
+films:
+  - title: Legends of the Fall
+    year: "1994"
+  - title: A Clockwork Orange
+    year: "1971"
+  - title: Interstellar
+    year: "2014"
+  - title: The Others
+    year: "2001"
+stats:
+  - value: "10+"
+    label: "dashboards & Explores shipped at Uphold"
+  - value: "80%"
+    label: "faster queries after a dbt rebuild"
+  - value: "20,000+"
+    label: "attendees at events I directed"
+  - value: "30+"
+    label: "students taught in Power BI"

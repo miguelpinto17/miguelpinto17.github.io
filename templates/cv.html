@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block content %}
+<header class="detail-header">
+  <div class="prose">
+    <h1>CV</h1>
+    <p class="summary">{{ cv.summary }}</p>
+    <div class="detail-links">
+      <a class="btn btn-primary" href="{{ site.linkedin }}">LinkedIn</a>
+      <a class="btn" href="{{ site.github }}">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<section class="section prose">
+  <div class="cv-section reveal">
+    <h2>Experience</h2>
+    <div class="timeline">
+      {% for e in cv.experience %}
+      <div class="timeline-item">
+        <div class="role-line"><span class="role">{{ e.role }}</span><span class="when">{{ e.when }}</span></div>
+        <div class="org">{{ e.org }}</div>
+        <ul>{% for b in e.bullets %}<li>{{ b }}</li>{% endfor %}</ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="cv-section reveal">
+    <h2>Projects</h2>
+    <ul>
+      {% for p in projects %}
+      <li><a class="link" href="/projects/{{ p.slug }}/">{{ p.title }}</a> · {{ p.summary }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="cv-section reveal">
+    <h2>Education</h2>
+    {% for e in cv.education %}
+    <div class="cv-item">
+      <div class="role-line"><span class="role">{{ e.role }}</span><span class="when">{{ e.when }}</span></div>
+      <div class="org">{{ e.org }}</div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="cv-section reveal">
+    <h2>Voluntary experience</h2>
+    <div class="timeline">
+      {% for e in cv.voluntary %}
+      <div class="timeline-item">
+        <div class="role-line"><span class="role">{{ e.role }}</span><span class="when">{{ e.when }}</span></div>
+        <div class="org">{{ e.org }}</div>
+        <ul>{% for b in e.bullets %}<li>{{ b }}</li>{% endfor %}</ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="cv-section reveal">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      {% for cat in cv.skills.categories %}
+      <div class="skill-category">
+        <h3>{{ cat.name }}</h3>
+        <div class="tags">{% for item in cat['items'] %}<span class="tag">{{ item }}</span>{% endfor %}</div>
+      </div>
+      {% endfor %}
+    </div>
+    <p style="margin-top:1.2rem; color: var(--muted);">{{ cv.skills.languages | join(' · ') }}</p>
+  </div>
+
+  <div class="cv-section reveal">
+    <h2>Certificates</h2>
+    <ul>
+      {% for c in cv.certificates %}<li>{{ c.name }} · {{ c.org }}, {{ c.year }}</li>{% endfor %}
+    </ul>
+  </div>
+
+  <div class="cv-section reveal">
+    <h2>Contact</h2>
+    <p><a class="link" href="{{ site.linkedin }}">LinkedIn</a> · <a class="link" href="{{ site.github }}">GitHub</a></p>
+  </div>
+</section>
+{% endblock %}

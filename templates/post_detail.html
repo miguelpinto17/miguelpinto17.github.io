@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<header class="detail-header">
+  <div class="prose">
+    <p class="eyebrow"><a class="link" href="/{{ back_href }}/">← {{ back_label }}</a> · {{ post.date_str }}{% if post.category %} · {{ post.category|capitalize }}{% endif %}{% if post.topic %} · {{ post.topic }} · {{ post.level|capitalize }}{% endif %}</p>
+    <h1>{{ post.title }}</h1>
+    <p class="summary">{{ post.description }}</p>
+  </div>
+</header>
+<article class="section prose">
+  {{ content|safe }}
+</article>
+{% endblock %}

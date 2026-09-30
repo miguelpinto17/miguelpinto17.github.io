@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero hero--signal" data-signal-hero>
+  <div class="prose hero-content">
+    <p class="kicker">Miguel Luzes — Data Analyst · Porto, Portugal</p>
+    <h1 class="signal-title">
+      <span class="w" style="--wi:0">From</span>
+      <span class="w" style="--wi:1">noise</span>
+      <span class="w" style="--wi:2">to</span>
+      <span class="w w--accent" style="--wi:3">signal.<span class="sig-underline" aria-hidden="true"></span></span>
+    </h1>
+    <p class="tagline">I turn raw, half-understood numbers into decisions teams actually trust — the pipelines, dashboards and models behind that line.</p>
+
+    <canvas class="signal-canvas" data-signal-canvas aria-hidden="true"></canvas>
+
+    <div class="hero-links">
+      <a class="btn btn-primary" href="/cv/">Download CV</a>
+      <a class="btn" href="{{ site.github }}">GitHub</a>
+      <a class="btn" href="{{ site.linkedin }}">LinkedIn</a>
+    </div>
+  </div>
+
+  <noscript>
+    <svg class="sparkline" width="220" height="40" viewBox="0 0 220 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <polyline fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        points="0,30 20,24 40,27 60,15 80,19 100,8 120,14 140,6 160,12 180,4 200,10 220,2" />
+    </svg>
+  </noscript>
+</section>
+
+{% if tools %}
+<section class="tools-strip">
+  <div class="wrap tools-strip-inner">
+    <span class="tools-label">Working with</span>
+    <div class="tools-track-wrap">
+      <div class="tools-track">
+        {% for t in tools %}<span class="tool-pill">{{ t }}</span>{% endfor %}
+        {% for t in tools %}<span class="tool-pill" aria-hidden="true">{{ t }}</span>{% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="section">
+  <div class="prose about-block">
+    <p class="mission reveal">{{ site.mission }}</p>
+    <p class="reveal">{{ site.about }}</p>
+  </div>
+  <div class="wrap">
+    <div class="stat-grid">
+      {% for s in site.stats %}
+      <div class="stat reveal">
+        <div class="stat-value">{{ s.value }}</div>
+        <div class="stat-label">{{ s.label }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-tint">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Skills</h2>
+      <a class="see-all" href="/cv/">Full CV →</a>
+    </div>
+    <div class="skills-grid">
+      {% for cat in skill_categories %}
+      <div class="skill-category reveal">
+        <h3>{{ cat.name }}</h3>
+        <div class="tags">{% for item in cat['items'] %}<span class="tag">{{ item }}</span>{% endfor %}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Featured projects</h2>
+      <a class="see-all" href="/projects/">All projects →</a>
+    </div>
+    <div class="grid">
+      {% for p in featured_projects %}
+      <a class="card reveal-zoom" href="/projects/{{ p.slug }}/">
+        <span class="card-meta">{{ p.year }}</span>
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.summary }}</p>
+        <div class="tags">{% for t in p.stack[:4] %}<span class="tag">{{ t }}</span>{% endfor %}</div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Latest writing</h2>
+      <a class="see-all" href="/blog/">All posts →</a>
+    </div>
+    {% for item in latest_writing %}
+    <a class="post-row reveal" href="/{{ item.section }}/{{ item.slug }}/">
+      <div>
+        <div class="post-title">{{ item.title }}</div>
+        <div class="post-desc">{{ item.description }}</div>
+      </div>
+      <div class="post-date">{{ item.date_str }}</div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+{% if site.teaching %}
+<section class="section">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <div class="cta-text">
+        <h2>{{ site.teaching.line }}</h2>
+        <p>{{ site.teaching.sub }}</p>
+      </div>
+      <a class="btn btn-primary" href="{{ site.linkedin }}">{{ site.teaching.cta }}</a>
+    </div>
+  </div>
+</section>
+{% endif %}
+{% endblock %}

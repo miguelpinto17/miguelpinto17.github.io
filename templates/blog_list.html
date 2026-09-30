@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<header class="detail-header">
+  <div class="prose">
+    <h1>Blog</h1>
+    <p class="summary">Notes on whatever I'm into: books, training, films, football and occasionally data.</p>
+    {% if site.letterboxd %}
+    <p class="summary letterboxd-line">Film notes &amp; ratings live on <a class="letterboxd-link" href="{{ site.letterboxd }}">Letterboxd <span class="arrow">→</span></a></p>
+    {% endif %}
+  </div>
+</header>
+<section class="section prose">
+  <div class="chip-row">
+    <a class="chip" href="/blog/" {% if not active_category %}aria-current="true"{% endif %}>All</a>
+    {% for c in categories %}
+    <a class="chip" href="/blog/category/{{ c }}/" {% if active_category==c %}aria-current="true"{% endif %}>{{ c|capitalize }}</a>
+    {% endfor %}
+  </div>
+  {% for post in posts %}
+  <a class="post-row reveal" href="/blog/{{ post.slug }}/">
+    <div>
+      <div class="post-title">{{ post.title }}</div>
+      <div class="post-desc">{{ post.description }}</div>
+    </div>
+    <div class="post-date">{{ post.date_str }}</div>
+  </a>
+  {% else %}
+  <p class="todo">No posts in this category yet.</p>
+  {% endfor %}
+</section>
+{% endblock %}

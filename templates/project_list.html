@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<header class="detail-header">
+  <div class="prose">
+    <h1>Projects</h1>
+    <p class="summary">Personal and side projects, plus one architecture write-up from work. Each one links to code where it's public.</p>
+  </div>
+</header>
+<section class="section">
+  <div class="wrap">
+    <div class="grid">
+      {% for p in projects %}
+      <a class="card reveal" href="/projects/{{ p.slug }}/">
+        <span class="card-meta">{{ p.year }}</span>
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.summary }}</p>
+        <div class="tags">{% for t in p.stack[:4] %}<span class="tag">{{ t }}</span>{% endfor %}</div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
